@@ -10,19 +10,19 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
-    var selectedIamge: String?
+    var selectedImage: String?
+    var selectedPictureNumber: Int?
+    var totalPictures: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = selectedIamge
+        self.title = "Picture \(selectedPictureNumber!) of \(totalPictures!)"
         navigationItem.largeTitleDisplayMode = .never
         
-        if let imageToLoad = selectedIamge {
+        if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
         }
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +34,6 @@ class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false
     }
-    
 
     /*
     // MARK: - Navigation
